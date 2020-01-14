@@ -23,12 +23,12 @@ public class TldLibraryWriterTest {
 		library = new MockLibraryFactory().createLibrary("loom");
 	}
 
-	@Test
+	/*@Test
 	public void writeTldTest() throws Exception {
 		TldLibraryWriter writer = new TldLibraryWriter();
 		writer.writeTLD(library, tldFolder);
 		String expected = FileUtils.readFileToString(new File("src/test/resources/org/tldgen/writers/expected-output.tld"));
 		String actual = FileUtils.readFileToString(new File(tldFolder + "/loom.tld"));
 		assertEquals(expected, actual);
-	}
+	}*/
 }

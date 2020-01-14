@@ -61,6 +61,8 @@ public class TldDoclet {
 	/** true to format output, false otherwise. Default true */
 	private static String formatOutput;
 
+	private static String jspVersion;
+
 	/** options accepted by this Doclet */
 	private static Set<String> options;
 	
@@ -78,7 +80,7 @@ public class TldDoclet {
 		options.add("tldFolder");
 		options.add("uri");
 		options.add("version");
-		
+		options.add("jspVersion");
 	}
 	
 	/**
@@ -93,7 +95,7 @@ public class TldDoclet {
 		try {
 			DocletOptions options = parseOptions(root.options());
 			TldWorker worker = new TldWorker(options);
-			if (name != null && uri != null) {
+			if (name != null) {
 				library = worker.processLibrary(root.classes(), createLibrarySignatureFromCommandLine(), tldFolder, htmlFolder);
 				result = true;
 			} else {
@@ -126,8 +128,9 @@ public class TldDoclet {
 		librarySignature.setDisplayName(displayName);
 		librarySignature.setLicense(convertLicense());
 		librarySignature.setShortName(name);
-		librarySignature.setUri(uri);
+		librarySignature.setUri("");
 		librarySignature.setVersion(convertVersion());
+		librarySignature.setJspVersion(jspVersion);
 		return librarySignature;
 	}
 	
@@ -139,6 +142,7 @@ public class TldDoclet {
 		librarySignature.setLargeIcon(getStringAttribute(libraryAnnotation, "largeIcon"));
 		librarySignature.setShortName(getStringAttribute(libraryAnnotation, "shortName"));
 		librarySignature.setUri(getStringAttribute(libraryAnnotation, "uri"));
+		librarySignature.setJspVersion(getStringAttribute(libraryAnnotation, "jspVersion"));
 		license = getEnumAttribute(libraryAnnotation, "license");
 		librarySignature.setLicense(convertLicense());
 		version = TldVersion.valueOf(getEnumAttribute(libraryAnnotation, "version")).getId();
@@ -173,7 +177,7 @@ public class TldDoclet {
 	
 	private static TldVersion convertVersion() {
 		TldVersion v = TldVersion.convert(version);
-		return v == null? TldVersion.VERSION_20 : v;
+		return v == null? TldVersion.VERSION_10 : v;
 	}
 
 
@@ -193,6 +197,7 @@ public class TldDoclet {
 		out.println("        -tldFolder {TLD folder name}");  
 		out.println("        -uri {uri name}");
 		out.println("        -version {TLD version}");
+		out.println("        -jspVersion {JSP version}");
 		out.println(""); 
 		out.println("This doclet accepts the following options:");
 		out.println(""); 
@@ -262,7 +267,7 @@ public class TldDoclet {
 	}
 
 	public static void reset() {
-		displayName = version = name = uri = indentSpaces = license = formatOutput = null;
+		displayName = version = name = uri = indentSpaces = license = formatOutput = jspVersion = null;
 		library = null;
 		
 		htmlFolder = DEFAULT_HTML_FOLDER;

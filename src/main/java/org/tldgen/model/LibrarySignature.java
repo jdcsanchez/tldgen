@@ -20,7 +20,7 @@ public class LibrarySignature {
 	private String uri;
 	
 	/** the version of the TLD to generate */
-	private TldVersion version = TldVersion.VERSION_20;
+	private TldVersion version = TldVersion.VERSION_10;
 	
 	/** the license to use */
 	private License license;
@@ -33,6 +33,8 @@ public class LibrarySignature {
 
 	/** a simple string describing the "use" of this taglib, should be user discernable */
 	private String description;
+
+	private String jspVersion;
 
 	public String getShortName() {
 		return shortName;
@@ -97,7 +99,12 @@ public class LibrarySignature {
 	public void setLargeIcon(String largeIcon) {
 		this.largeIcon = largeIcon;
 	}
-	
-	
-	
+
+	public String getJspVersion() {
+		return jspVersion;
+	}
+
+	public void setJspVersion(String jspVersion) {
+		this.jspVersion = jspVersion;
+	}
 }

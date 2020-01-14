@@ -237,7 +237,7 @@ public class Tag extends AbstractTldContainerElement {
     } else if(type.isPrimitive()) {
 			return PRIMITIVES.get(type.qualifiedTypeName());
     } else {
-			return type.qualifiedTypeName();
+			return type.toString();
     }
 	}
 

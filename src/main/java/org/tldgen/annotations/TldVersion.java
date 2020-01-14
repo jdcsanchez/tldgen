@@ -6,6 +6,12 @@ package org.tldgen.annotations;
  */
 public enum TldVersion {
 
+	VERSION_10("1.0", "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN\" \"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd"),
+
+	VERSION_12("1.2", "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN\" \"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd"),
+
+	VERSION_13("1.3", "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN\" \"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd"),
+
 	VERSION_20("2.0", "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"),
 	
 	VERSION_21("2.1", "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd");
@@ -45,6 +51,6 @@ public enum TldVersion {
 				return v;
 			}
 		}
-		throw new IllegalArgumentException("Unknown TLD version. Available values are: '2.0', '2.1'");
+		throw new IllegalArgumentException("Unknown TLD version. Available values are: '1.0', '1.2', '2.0', '2.1'");
 	}
 }

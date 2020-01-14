@@ -113,15 +113,18 @@ public class TldLibraryWriter extends AbstractWriter {
 		if (!StringUtils.isEmpty(licenseContent)) {
 			writer.writeComment(licenseContent);
 		}
+		writer.writeDTD("<!DOCTYPE taglib PUBLIC \"-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN\" \"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd\">");
 		startElement("taglib");
-		writeAttribute("xmlns", "http://java.sun.com/xml/ns/javaee");
+		/*writeAttribute("xmlns", "http://java.sun.com/xml/ns/javaee");
 		writeAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
 		writeAttribute("xsi:schemaLocation", tldVersion.getSchemaLocation());
-		writeAttribute("version", tldVersion.getId());
-		writeElement("display-name",signature.getDisplayName());
+		writeAttribute("version", tldVersion.getId());*/
 		writeElement("tlib-version", tldVersion.getId());
+		writeElement("jsp-version", signature.getJspVersion());
+		writeElement("display-name",signature.getDisplayName());
 		writeElement("short-name", signature.getShortName());
-		writeElement("uri", signature.getUri());
+		//writeElement("uri", signature.getUri());
+
 		writeElement("description", signature.getDescription());
 		if (signature.getSmallIcon() != null || signature.getLargeIcon() != null) {
 			startElement("icon");

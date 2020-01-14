@@ -35,7 +35,7 @@ public class LibraryFactoryTest {
 		int result = Main.execute(new String[] {
 				"-private", "-doclet", TldDoclet.class.getName(), "-sourcepath", "src/test/java", "org.tldgen.tags", "-tldFolder", OUTPUT_FOLDER + "LibraryFactoryTest-output",
 				"-displayName", "Loom Core Tag Library", "-name", "loom", "-uri", "http://loom.extrema-sistemas.org/loom-core.tld", "-htmlFolder", OUTPUT_FOLDER + "LibraryFactoryTest-output", 
-				"-indentSpaces", "4", "-license", "APACHE", "-version", "2.1"
+				"-indentSpaces", "4", "-license", "APACHE", "-version", "2.1", "-jspVersion", "1.3"
 		});
 		assertEquals("The javadoc command did not exit successfully. Check the system log for details", 0, result);
 		library = TldDoclet.library;

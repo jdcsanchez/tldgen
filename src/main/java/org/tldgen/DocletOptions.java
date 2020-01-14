@@ -7,7 +7,7 @@ public class DocletOptions {
 	
 	private String indentSpaces = "4";
 	
-	private TldVersion version = TldVersion.VERSION_21;
+	private TldVersion version = TldVersion.VERSION_10;
 	
 	private boolean formatOutput = true;
 	

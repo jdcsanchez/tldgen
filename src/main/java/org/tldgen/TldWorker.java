@@ -25,7 +25,7 @@ public class TldWorker {
 	public Library processLibrary(ClassDoc[] classes, LibrarySignature librarySignature, String tldFolder, String htmlFolder) {
 		Library library = libraryFactory.parse(classes, librarySignature);
 		createTLD(library, tldFolder);
-		createHtmlDoc(library, htmlFolder);
+		//createHtmlDoc(library, htmlFolder);
 		return library;
 	}
 	

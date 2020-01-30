@@ -50,7 +50,7 @@ public class TldLibraryWriter extends AbstractWriter {
 	 */
 	public void writeTLD(Library library, String folder) throws XMLStreamException, IOException {
 
-		String filename = folder + "/" + library.getLibrarySignature().getShortName() + ".tld";
+		String filename = folder + "/" + library.getLibrarySignature().getFileName() + ".tld";
 		if (warnIfExists(filename) && doNotOverwrite) {
 			return;
 		}
@@ -219,6 +219,7 @@ public class TldLibraryWriter extends AbstractWriter {
 			writeElement("name", attr.getName());
 			writeElement("required", attr.isRequired()? attr.isRequired() : null);
 			writeElement("rtexprvalue", attr.isRtexprvalue()? attr.isRtexprvalue() : null);
+			//Comment this out to remove type from tld
 			if(attr.hasType()) {
 				writeElement("type", attr.getType());
 			}

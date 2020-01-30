@@ -63,6 +63,8 @@ public class TldDoclet {
 
 	private static String jspVersion;
 
+	private static String fileName;
+
 	/** options accepted by this Doclet */
 	private static Set<String> options;
 	
@@ -81,6 +83,7 @@ public class TldDoclet {
 		options.add("uri");
 		options.add("version");
 		options.add("jspVersion");
+		options.add("fileName");
 	}
 	
 	/**
@@ -131,6 +134,7 @@ public class TldDoclet {
 		librarySignature.setUri("");
 		librarySignature.setVersion(convertVersion());
 		librarySignature.setJspVersion(jspVersion);
+		librarySignature.setFileName(fileName);
 		return librarySignature;
 	}
 	
@@ -267,7 +271,7 @@ public class TldDoclet {
 	}
 
 	public static void reset() {
-		displayName = version = name = uri = indentSpaces = license = formatOutput = jspVersion = null;
+		displayName = version = name = uri = indentSpaces = license = formatOutput = jspVersion = fileName = null;
 		library = null;
 		
 		htmlFolder = DEFAULT_HTML_FOLDER;

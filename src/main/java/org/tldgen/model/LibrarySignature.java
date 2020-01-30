@@ -36,6 +36,8 @@ public class LibrarySignature {
 
 	private String jspVersion;
 
+	private String fileName;
+
 	public String getShortName() {
 		return shortName;
 	}
@@ -106,5 +108,13 @@ public class LibrarySignature {
 
 	public void setJspVersion(String jspVersion) {
 		this.jspVersion = jspVersion;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }
